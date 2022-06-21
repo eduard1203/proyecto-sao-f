@@ -1,4 +1,5 @@
-package com.example.demo;
+package com.curso.ecommerce.controller;
+
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
