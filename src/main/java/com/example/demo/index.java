@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class index {
 	
 	
-	@GetMapping("/")
+	@GetMapping("https://proyecto-sao-final.herokuapp.com/")
 public String indeX() {
 
 	return"index";
