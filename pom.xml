@@ -9,7 +9,6 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>spring-ecommerce-mains3-6</artifactId>
 	<artifactId>spring-ecommerce-mains3-7</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>spring-ecommerce-mains3-7</name>
