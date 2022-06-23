@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.curso.ecommerce.model.Orden;
 import com.curso.ecommerce.model.Producto;
+import com.curso.ecommerce.repository.IOrdenRepository;
 import com.curso.ecommerce.service.IOrdenService;
 import com.curso.ecommerce.service.IUsuarioService;
 import com.curso.ecommerce.service.ProductoService;
@@ -29,6 +30,11 @@ public class AdministradorController {
 	
 	@Autowired
 	private IOrdenService ordensService;
+	
+	@Autowired
+	private IOrdenRepository iOrdenRepository;
+	
+	private int fre;
 	
 	private Logger logg= LoggerFactory.getLogger(AdministradorController.class);
 
@@ -51,6 +57,8 @@ public class AdministradorController {
 	@GetMapping("/ordenes")
 	public String ordenes(Model model) {
 		model.addAttribute("ordenes", ordensService.findAll());
+		fre = iOrdenRepository.fre();
+		model.addAttribute("fre", fre);
 		return "administrador/ordenes";
 	}
 	
