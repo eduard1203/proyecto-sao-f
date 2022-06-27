@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>LOGIN</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="CSS/LOGIN.css">
+</head>
+<body>
+
+<div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="text-center">INICIO DE SESION</h1>
+                    <form th:action="@{/LoginSession}" th:object="${usuario}" method="POST">
+                        <div class="form-group">
+
+                            <label>Correo</label>
+                            <input type="email" th:field="*{correo}"  placeholder="Ingrese su correo" class="form-control" required="required">
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label>Contraseña</label>
+                            <input type="password" th:field="*{contrasena}"  placeholder="Ingrese su Contraseña" class="form-control" required="required">
+
+                        </div>
+                        <button type="submit" class="btn btn-block btn-success">Iniciar sesión</button>
+                    </form>
+                        <div class="alert alert-danger alert-dismissable mt-3" th:if="${error != null}">
+	                        <label th:text="${error}"></label>
+	                        <button type="button" class="close" data-dismiss="alert">&times;</button> 
+                        </div>
+                        <div class="alert alert-danger alert-dismissable mt-3" th:if="${error2 != null}">
+	                        <label th:text="${error2}"></label>
+	                        <button type="button" class="close" data-dismiss="alert">&times;</button> 
+                        </div>
+                </div>
+            </div>
+        </div>
+        
+
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" ></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

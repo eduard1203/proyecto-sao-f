@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<link rel="apple-touch-icon" sizes="76x76" href="../IMG/logo.jpeg">
+<link rel="icon" type="image/jpeg" href="../IMG/logo.jpeg">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<!-- CSS validación -->
+<link rel="stylesheet" href="../CSS/solicitudes.css">
+
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+<link rel="stylesheet"
+	href="https://cdn.datatables.net/1.11.1/css/dataTables.bootstrap4.min.css">
+
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<title>Pagos</title>
+<meta
+	content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+	name='viewport' />
+<link
+	href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200"
+	rel="stylesheet" />
+<link
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+
+<link href="../CSS/bootstrap.min.css" rel="stylesheet" />
+<link href="../CSS/paper-dashboard.css?v=2.0.0" rel="stylesheet" />
+
+
+<link href="demo/demo.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+
+<script type="text/javascript">
+	function confirmupdate() {
+
+		var respuesta = confirm("deseas agregar o actualizar el pago?");
+
+		if (respuesta == true) {
+			return true;
+		} else {
+			return false;
+		}
+
+	}
+</script>
+</head>
+<body>
+	<style>
+.des {
+	background-image: radial-gradient(circle at 47.15% 17.46%, #a4f5f8 0, #63c9c9 25%, #28978e
+		50%, #127467 75%, #0a584b 100%);
+}
+
+* {
+	font: small-caps 100%/200% serif;
+	font-weight: 900;
+}
+
+.icono {
+	color: #000000;
+	width: 100px;
+	height: 100px;
+}
+
+@media screen and (max-width: 600px) {
+	table {
+		width: 100%;
+	}
+	thead {
+		display: none;
+	}
+	tr:nth-of-type(2n) {
+		background-color: inherit;
+	}
+	tr td:first-child {
+		background: #f0f0f0;
+		font-weight: bold;
+		font-size: 1.3em;
+	}
+	tbody td {
+		display: block;
+		text-align: center;
+	}
+	tbody td:before {
+		content: attr(data-th);
+		display: block;
+		text-align: center;
+	}
+}
+</style>
+	<div class="wrapper">
+		<div class="sidebar" data-color="white" data-active-color="danger">
+			<div class="logo">
+				<a href="#" class="simple-text logo-medium">
+					<div class="logo-image-small">
+						<img src="../IMG/logo.jpeg">
+					</div>
+				</a>
+			</div>
+			<div class="sidebar-wrapper des">
+				<ul class="nav">
+					<li class=""><a href="/Residente"> <b><i
+								class="fas fa-home" style="color: black;"></i></b>
+							<p style="color: black;">
+								<b>INICIO</b>
+							</p>
+					</a></li>
+					<li><a href="/Residente"> <b><i class="fas fa-user"
+								style="color: black;"></i></b>
+							<p style="color: black;">
+								<b>MI PERFIL</b>
+							</p>
+					</a></li>
+					<li class=""><a href="pagos"> <b><i
+								class="far fa-credit-card" style="color: black;"></i></b>
+							<p style="color: black;">
+								<b>PAGOS</b>
+							</p>
+					</a></li>
+					<li class="active"><a href="solicitudes"> <b><i
+								class="fas fa-question" style="color: black;"></i></b>
+							<p style="color: black;">
+								<b>SOLICITUDES</b>
+							</p>
+					</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="main-panel">
+			<nav
+				class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+				<div class="container-fluid">
+					<div class="navbar-wrapper">
+						<div class="navbar-toggle">
+							<button type="button" class="navbar-toggler">
+								<span class="navbar-toggler-bar bar1"></span> <span
+									class="navbar-toggler-bar bar2"></span> <span
+									class="navbar-toggler-bar bar3"></span>
+							</button>
+						</div>
+						<a class="navbar-brand" href="#">Pagos</a>
+					</div>
+					<button class="navbar-toggler" type="button" data-toggle="collapse"
+						data-target="#navigation" aria-controls="navigation-index"
+						aria-expanded="false" arial-label="Toggle navigation">
+						<span class="navbar-toggler-bar navbar-kebad"></span> <span
+							class="navbar-toggler-bar navbar-kebad"></span> <span
+							class="navbar-toggler-bar navbar-kebad"></span>
+					</button>
+					<div class="collapse navbar-collapse justify-content-end"
+						id="navigation">
+						<form>
+							<div class="input-group no-border">
+								<input type="text" value="" class="form-control"
+									placeholder="Buscar">
+								<div class="input-group-append">
+									<div class="input-group-text">
+										<i class="fas fa-search"></i>
+									</div>
+								</div>
+							</div>
+						</form>
+						<ul class="navbar-nav">
+							<li class="nav-item"><a class="nav-link btn-magnify"
+								href="#"> <i class="far fa-bell"></i>
+									<p>
+										<span class="d-lg-none d-md-bolck">Notificaciones</span>
+									</p>
+							</a></li>
+
+							<li class="nav-item"><a class="nav-link btn-rotate" href="#">
+									<i class="far fa-user-circle"></i>
+									<p>
+										<span class="d-lg-none d-md-block">Cuenta</span>
+									</p>
+							</a></li>
+							<li class="nav-item btn-rotate dropdown"><a
+								class="nav-link dropdown-toggle" href="https://example.com"
+								id="navbarDropdownMenuLink" data-toggle="dropdown"
+								aria-haspopup="true" aria-expanded="false"> <i
+									class="fas fa-door-open"></i>
+									<p>
+										<span class="d-lg-none d-md-block">Cerrar Sesion</span>
+									</p>
+							</a>
+								<div class="dropdown-menu dropdown-menu-right"
+									aria-labelledby="navbarDropdownMenuLink">
+									<a class="dropdown-item" href="/Login">Salir</a>
+								</div></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+			<div class="content">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-8">
+							<div class="card shadow mb-5 bg-white">
+								<div class="card-header bg-primary text-center"
+									style="font-size: 20px;">REGISTRO PAGOS</div>
+								<div class="card-body">
+									<form th:action="@{/savePago}" th:object=${pago}
+										id="form-bahia" method="POST" class="needs-validation"
+										novalidate="novalidate">
+
+
+										<div class="form-row">
+											<div class="col-md-12 sm-6 mb-3">
+												<label for="id_pago">id_pago</label> <input
+													th:field="*{Id_pago}" readonly="readonly" type="number"
+													class="form-control" id="id_pago" placeholder="id_pago"
+													required="required">
+												<div class="valid-feedback">id_pago ingresado</div>
+												<div class="invalid-feedback">Ingrese un id_pago</div>
+											</div>
+										</div>
+
+										<div class="form-row">
+											<div class="col-md-12 sm-6 mb-3">
+												<label for="doc_usuario">doc_usuario</label> <input
+													th:field="*{usuario.Doc_Usuario}" type="number"
+													class="form-control" id="doc_usuario"
+													placeholder="doc_usuario" required="required">
+												<div class="valid-feedback">doc_usuario ingresado</div>
+												<div class="invalid-feedback">Ingrese un doc_usuario</div>
+											</div>
+										</div>
+
+										<div class="form-row">
+											<div class="col-md-12 sm-6 mb-3">
+												<label for="fecha">fecha</label> <input th:field="*{Fecha}"
+													type="text" class="form-control" id="fecha"
+													placeholder="fecha" required="required">
+												<div class="valid-feedback">fecha ingresada</div>
+												<div class="invalid-feedback">Ingrese una fecha</div>
+											</div>
+
+										</div>
+
+										<div class="form-row">
+											<div class="col-md-12 sm-6 mb-3">
+												<label for="hora">hora</label> <input th:field="*{Hora}"
+													type="text" class="form-control" id="hora"
+													placeholder="hora" required="required">
+												<div class="valid-feedback">hora ingresada</div>
+												<div class="invalid-feedback">Ingrese una hora</div>
+											</div>
+										</div>
+
+										<div class="form-row">
+											<div class="col-md-6 sm-3 mb-3">
+												<label for="concepto">concepto</label> <input
+													th:field="*{Concepto}" type="text" name="concepto"
+													id="concepto" class="form-control" placeholder="concepto"
+													required="required">
+												<div class="valid-feedback">concepto ingresado</div>
+												<div class="invalid-feedback">Ingrese un concepto</div>
+											</div>
+
+											<div class="col-md-6 sm-3 mb-3">
+												<label for="medio_pago">medio_pago</label> <input
+													th:field="*{Medio_pago}" type="text" name="medio_pago"
+													id="medio_pago" class="form-control"
+													placeholder="medio_pago" required="required">
+												<div class="valid-feedback">medio_pago ingresado</div>
+												<div class="invalid-feedback">Ingrese un medio_pago</div>
+											</div>
+										</div>
+
+										<div class="form-row">
+											<div class="col-md-12 sm-6 mb-3">
+												<label for="estado">estado</label>
+												<select th:field="*{Estado}" class="form-control" name="Estado">
+			                                        <option value="habilitado">habilitado</option>
+			                                        <option value="deshabilitado">deshabilitado</option>
+			                                    </select>
+												<div class="valid-feedback">estado ingresado</div>
+												<div class="invalid-feedback">Ingrese un estado</div>
+											</div>
+										</div>
+
+										<div class="text-center">
+											<button class="btn btn-primary" type="submit"
+												onclick="return confirmupdate()">Enviar</button>
+										</div>
+
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<!-- escrips para data table -->
+	<script src="../../JS/core/popper.min.js"></script>
+	<script src="../../JS/core/jquery.min.js"></script>
+	<script src="../../JS/core/bootstrap.min.js"></script>
+
+	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="funciones.js"></script>
+
+	<!-- escrips que no sé pa que son NO BORRAR -->
+	<script src="../../JS/plugins/perfect-scrollbar.jquery.min.js"></script>
+
+	<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+
+	<script src="../../JS/plugins/chartjs.min.js"></script>
+
+	<script src="../../../JS/plugins/bootstrap-notify.js"></script>
+
+	<script src="../../../JS/paper-dashboard.min.js?v=2.0.0"
+		type="text/javascript"></script>
+
+	<script src="../../../demo/demo.js"></script>
+
+	<script src="../JS/solicitudes.js"></script>
+
+	<script src="../JS/validaciones.js"></script>
+	<script>
+		$(document).ready(function() {
+			// Javascript method's body can be found in assets/assets-for-demo/js/demo.js
+			demo.initChartsPages();
+		});
+	</script>
+
+</body>
+</html>
