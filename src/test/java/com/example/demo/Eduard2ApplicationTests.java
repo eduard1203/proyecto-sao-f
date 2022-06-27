@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringEcommerceMains31ApplicationTests {
+class Eduard2ApplicationTests {
 
 	@Test
 	void contextLoads() {
