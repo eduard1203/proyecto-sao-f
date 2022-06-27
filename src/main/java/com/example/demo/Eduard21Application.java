@@ -1,12 +1,13 @@
-package com.curso.ecommerce;
+package com.example.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-
 @SpringBootApplication
-public class SpringEcommerceApplication {	
+public class Eduard21Application {
+
 	public static void main(String[] args) {
-		SpringApplication.run(SpringEcommerceApplication.class, args);
+		SpringApplication.run(Eduard21Application.class, args);
 	}
+
 }
