@@ -90,9 +90,23 @@
 							<nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
 								<a class="nav-link" th:href="@{/administrador/usuarios}">Usuarios </a>
 
+<a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages"
+							aria-expanded="false" aria-controls="collapsePages">
+							<div class="sb-nav-link-icon"><i class="fa-solid fa-user-gear"></i></div>
+							Cargue De  Facturas
+							<div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+						</a>
+						<div class="collapse" id="collapsePages" aria-labelledby="headingTwo"
+							data-bs-parent="#sidenavAccordion">
+							<nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+								<a class="nav-link" th:href="@{/cargamasiva}">carga de  facturas </a>
+
 
 
 							</nav>
+
+							</nav>
+							
 							
 						</div>
 					</div>
@@ -128,7 +142,7 @@
 									<div class="col-7 col-md-8">
 
 										<div class="numbers">
-											<p style="font-size: 15px;" class="card-category">Ingresos Totales</p>
+											<p style="font-size: 15px;" class="card-category">Numero  de  Clientes Registrados</p>
 										</div>
 									</div>
 								</div>
@@ -136,7 +150,7 @@
 									<hr>
 									<div class="stast">
 										<i class="fas fa-money-check-alt"></i> 
-										<p style="font-size: 25px; text-align: end" th:text="${usu}"></p> 
+										<p style="font-size: 25px; text-align: end" th:text="${cliente}"></p> 
 									</div>
 								</div>
 							</div>
@@ -154,7 +168,7 @@
 									</div>
 									<div class="col-7 col-md-8">
 										<div class="numbers">
-											<p style="font-size: 15px;" class="card-category">Residentes</p>
+											<p style="font-size: 15px;" class="card-category">Numero  de  Usuarios Registrados</p>
 											<hr>
 											<p style="font-size: 25px;" class="card-title $" th:text="${usu}"></p>
 										</div>
@@ -175,7 +189,7 @@
 									</div>
 									<div class="col-7 col-md-8">
 										<div class="numbers">
-											<p class="card-category" style="font-size: 15px;">Promedio De Ingresos</p>
+											<p class="card-category" style="font-size: 15px;">Numero  de  Empleados</p>
 											
 										</div>
 									</div>
@@ -184,7 +198,7 @@
 									<hr>
 									<div class="stast">
 										<i class="fa-solid fa-arrow-trend-up"></i>
-										<p style="font-size: 25px; text-align: end" th:text="${usu}"></p> 
+										<p style="font-size: 25px; text-align: end" th:text="${empleado}"></p> 
 									</div>
 								</div>
 							</div>
@@ -212,7 +226,7 @@
 									<th scope="col">Dirección</th>
 									<th scope="col">Telefono</th>
 									<th scope="col">Rol</th>
-									<th scope="col">Editar</th>
+									
 									<th scope="col">Eliminar</th>
 								</tr>
 							</thead>
@@ -224,8 +238,7 @@
 									<td th:text="${usuario.direccion}"></td>
 									<td th:text="${usuario.telefono}"></td>
 									<td th:text="${usuario.tipo}"></td>
-								<th><a th:href="@{/usuario/editarUsuario/}+${usuario.id}"
-												class="btn btn-info txt-light">editar</a></th>
+								
 									<td><a class="btn btn-danger"
 											th:href="@{/usuario/delete/{id} (id=${usuario.id}) }">Eliminar</a> </td>
 								</tr>

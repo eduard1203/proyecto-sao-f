@@ -21,7 +21,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class CSVHelper {
   public static String TYPE = "text/csv";
-  static String[] HEADERs = { "id", "nombre", "direccion", "ciudad", "estado", "rol", "celular", "clave" };
+  static String[] HEADERs = { "id", "nombre", "direccion", "ciudad", "estado", "producto", "celular", "total" };
 
   public static boolean hasCSVFormat(MultipartFile file) {
     if (TYPE.equals(file.getContentType())
@@ -47,9 +47,9 @@ public class CSVHelper {
               csvRecord.get("direccion"),
               csvRecord.get("ciudad"),
               csvRecord.get("estado"),
-              csvRecord.get("rol"),
+              csvRecord.get("producto"),
               Long.parseLong(csvRecord.get("celular")),
-              csvRecord.get("clave")
+              csvRecord.get("total")
             );
 
     	  developerTutorialList.add(developerTutorial);
@@ -73,9 +73,9 @@ public class CSVHelper {
               developerTutorial.getDireccion(),
               developerTutorial.getCiudad(),
               developerTutorial.getEstado(),
-              developerTutorial.getRol(),
+              developerTutorial.getProducto(),
               String.valueOf(developerTutorial.getCelular()),
-              developerTutorial.getClave()
+              developerTutorial.getTotal()
             );
 
         csvPrinter.printRecord(data);

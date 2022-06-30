@@ -13,4 +13,13 @@ public interface IUsuarioRepository extends JpaRepository<Usuario, Integer>{
 	Optional<Usuario> findByEmail(String email);
 	@Query(value ="SELECT COUNT(usuarios.id)FROM usuarios",nativeQuery = true)
 	public int usuarios();
+	
+	@Query(value ="	SELECT COUNT(usuarios.id)FROM usuarios WHERE  tipo='USER'",nativeQuery = true)
+	public int clientes();
+	
+	@Query(value ="	SELECT COUNT(usuarios.id)FROM usuarios WHERE   NOT  tipo='USER'",nativeQuery = true)
+	public int empleados();
+
+     
+	
 }

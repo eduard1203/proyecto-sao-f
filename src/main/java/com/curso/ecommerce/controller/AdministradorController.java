@@ -37,6 +37,8 @@ public class AdministradorController {
 	private IUsuarioRepository iUsuarioRepository;
 	
 	private int  usu;
+	private int  cliente;
+	private int  empleado;
 	
 	
 	@GetMapping("")
@@ -54,6 +56,10 @@ public class AdministradorController {
 		model.addAttribute("usuarios", usuarioService.findAll());
 		usu=iUsuarioRepository.usuarios();
 		model.addAttribute("usu", usu);
+		cliente=iUsuarioRepository.clientes();
+		model.addAttribute("cliente", cliente);
+		empleado=iUsuarioRepository.empleados();
+		model.addAttribute("empleado", empleado);
 		return "administrador/usuarios";
 	}
 	

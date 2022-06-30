@@ -27,28 +27,28 @@ public class DeveloperTutorial {
           @Column(name = "estado")
 	  private String estado;
           
-          @Column(name = "rol")
-	  private String rol;
+          @Column(name = "producto")
+	  private String producto;
           
           @Column(name = "celular")
 	  private long celular;
           
-          @Column(name = "clave")
-	  private String clave;
+          @Column(name = "total")
+	  private String total;
           
 	  public DeveloperTutorial() {
 
 	  }
 
-    public DeveloperTutorial(long id, String nombre, String direccion, String ciudad, String estado, String rol, long celular, String clave) {
+    public DeveloperTutorial(long id, String nombre, String direccion, String ciudad, String estado, String producto, long celular, String total) {
         this.id = id;
         this.nombre = nombre;
         this.direccion = direccion;
         this.ciudad = ciudad;
         this.estado = estado;
-        this.rol = rol;
+        this.producto = producto;
         this.celular = celular;
-        this.clave = clave;
+        this.total = total;
     }
 
     public long getId() {
@@ -91,12 +91,12 @@ public class DeveloperTutorial {
         this.estado = estado;
     }
 
-    public String getRol() {
-        return rol;
+    public String getProducto() {
+        return producto;
     }
 
-    public void setRol(String rol) {
-        this.rol = rol;
+    public void setProducto(String producto) {
+        this.producto = producto;
     }
 
     public long getCelular() {
@@ -107,12 +107,12 @@ public class DeveloperTutorial {
         this.celular = celular;
     }
 
-    public String getClave() {
-        return clave;
+    public String getTotal() {
+        return total;
     }
 
-    public void setClave(String clave) {
-        this.clave = clave;
+    public void setTotal(String total) {
+        this.total = total;
     }
 
           
