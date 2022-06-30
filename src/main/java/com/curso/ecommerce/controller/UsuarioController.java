@@ -23,6 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.curso.ecommerce.model.Orden;
 import com.curso.ecommerce.model.Producto;
 import com.curso.ecommerce.model.Usuario;
+import com.curso.ecommerce.repository.IUsuarioRepository;
 import com.curso.ecommerce.service.IOrdenService;
 import com.curso.ecommerce.service.IUsuarioService;
 
@@ -33,6 +34,10 @@ public class UsuarioController {
 	private final Logger logger= LoggerFactory.getLogger(UsuarioController.class);
 	     
 	
+	
+
+	
+	
 	@Autowired
 	private IUsuarioService usuarioService;
 	
@@ -40,6 +45,9 @@ public class UsuarioController {
 	private IOrdenService ordenService;
 	
 	BCryptPasswordEncoder passEncode= new BCryptPasswordEncoder();
+	
+
+	
 	
 	
 	// /usuario/registro

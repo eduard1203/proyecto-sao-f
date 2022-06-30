@@ -1,8 +1,13 @@
 package com.curso.ecommerce.controller;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.*;
@@ -22,6 +27,7 @@ import com.curso.ecommerce.service.IUsuarioService;
 import com.curso.ecommerce.service.ProductoService;
 import com.curso.ecommerce.service.UploadFileService;
 import com.curso.ecommerce.service.UsuarioServiceImpl;
+
 
 @Controller
 @RequestMapping("/productos")
@@ -101,6 +107,7 @@ public class ProductoController {
 		productoService.update(producto);		
 		return "redirect:/productos";
 	}
+
 	
 	@GetMapping("/delete/{id}")
 	public String delete(@PathVariable Integer id) {
@@ -117,5 +124,6 @@ public class ProductoController {
 		return "redirect:/productos";
 	}
 	
+
 	
 }

@@ -16,8 +16,8 @@ public class correoControl {
 	public String sendEmail(@RequestParam("titulo")String Subject,@RequestParam("cuerpo")String content ) {
 		
 		
-		gmail.sendEmail("migueleduxs@gmail.com", Subject , content);
-		return "inicio";
+		gmail.sendEmail("eduard1203x@gmail.com", Subject , content);
+		return "administrador/home";
 	}
 	
 

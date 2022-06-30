@@ -64,13 +64,7 @@
 							Gestion Ventas
 							<div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
 						</a>
-						<div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
-							data-bs-parent="#sidenavAccordion">
-							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" th:href="@{/productos/create}">Crear Productos </a>
-
-							</nav>
-						</div>
+					
 						<div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
 							data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
@@ -99,12 +93,7 @@
 
 
 							</nav>
-							<nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-								<a class="nav-link" th:href="@{/administrador/usuarios}">Configuracion de Usuarios </a>
-
-
-
-							</nav>
+							
 						</div>
 					</div>
 				</div>
@@ -125,11 +114,97 @@
 						<h1 class="mt-4 mb-3">
 							PROYECTO SAO <small> Usuarios</small>
 						</h1>
+                              <div class="row">
+					<div class="col-lg-4 col-md-3 col-sm-3">
+						<div class="card card-stats">
+							<div class="card-body">
+								<div class="row">
+									<div class="col-5 col-md-4">
+										<div class="icon-big text-center icon-warning">
+											<a><i style="color: #3b444b"
+												class="fas fa-user-tie"></i></a>
+										</div>
+									</div>
+									<div class="col-7 col-md-8">
 
+										<div class="numbers">
+											<p style="font-size: 15px;" class="card-category">Ingresos Totales</p>
+										</div>
+									</div>
+								</div>
+								<div class="card-footer">
+									<hr>
+									<div class="stast">
+										<i class="fas fa-money-check-alt"></i> 
+										<p style="font-size: 25px; text-align: end" th:text="${usu}"></p> 
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-2 col-sm-1">
+						<div class="card card-stats">
+							<div class="card-body">
+								<div class="row">
+									<div class="col-5 col-md-4">
+										<div class="icon-big text-center icon-warning">
+											<a ><i style="color: #3b444b"
+												class="fas fa-user-friends"></i></a>
+										</div>
+									</div>
+									<div class="col-7 col-md-8">
+										<div class="numbers">
+											<p style="font-size: 15px;" class="card-category">Residentes</p>
+											<hr>
+											<p style="font-size: 25px;" class="card-title $" th:text="${usu}"></p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-3 col-sm-3">
+						<div class="card card-stats">
+							<div class="card-body">
+								<div class="row">
+									<div class="col-5 col-md-4">
+										<div class="icon-big text-center icon-warning">
+											<a ><i style="color: #3b444b"
+												class="fas fa-user-friends"></i></a>
+										</div>
+									</div>
+									<div class="col-7 col-md-8">
+										<div class="numbers">
+											<p class="card-category" style="font-size: 15px;">Promedio De Ingresos</p>
+											
+										</div>
+									</div>
+								</div>
+								<div class="card-footer">
+									<hr>
+									<div class="stast">
+										<i class="fa-solid fa-arrow-trend-up"></i>
+										<p style="font-size: 25px; text-align: end" th:text="${usu}"></p> 
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+                        
+<div class="content">
+						<div class="row">
+							<div class="col-md-11 sm-5">
+								<div class="card">
+									<div class="table-responsive">
+										<br> 
+											
+										<h2 class="text-center">GESTION DE  USUARIOS </h2>
+										<table id="example"
+											class="table table-bordered display nowrap" cellspacing="0"
+											width="100%" style="font: small-caps 100%/200% arial;">
 
-						<h2>Usuarios</h2>
-						<table class="table">
-							<thead>
+											<thead>
 								<tr>
 								<th scope="col">ID</th>
 									<th scope="col">Nombre</th>
@@ -155,8 +230,14 @@
 											th:href="@{/usuario/delete/{id} (id=${usuario.id}) }">Eliminar</a> </td>
 								</tr>
 							</tbody>
-						</table>
-
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				
+					
 					</div>
 					<!-- /.container -->
 
